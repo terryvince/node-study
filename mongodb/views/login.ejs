@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="/login" enctype="application/x-www-form-urlencoded" method="post">
+  <div>
+    <label for="">用户名：<input type="text" name="username" value="123456"></label>
+  </div>
+  <div>
+    <label for="">密码：<input type="password" name="password" value="123456"></label>
+  </div>
+  <div>
+    <input type="submit" value="登录">
+  </div>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>用户名</th>
+      <th>性别</th>
+      <th>年龄</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i=0;i<data.length;i++){ %>
+    <tr>
+      <td><%= data[i].name%></td>
+      <td><%= data[i].sex %></td>
+      <td><%= data[i].age %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</body>
+</html>
