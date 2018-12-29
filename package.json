@@ -21,7 +21,18 @@
   },
   "homepage": "https://github.com/terryvince/node-study#readme",
   "dependencies": {
+    "art-template": "^4.13.2",
+    "cookies": "^0.7.3",
     "ejs": "^2.6.1",
+    "keygrip": "^1.0.3",
+    "koa": "^2.6.2",
+    "koa-art-template": "^1.1.1",
+    "koa-cookie": "^1.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "mongodb": "^3.1.10"
+  },
+  "devDependencies": {
+    "koa2-swagger-ui": "^2.11.9"
   }
 }

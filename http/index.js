@@ -1,5 +1,6 @@
 const App = require('./router')
 const fs = require('fs')
+const path = require('path')
 
 let app = new App()
 
@@ -8,7 +9,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/login', async function (req, res) {
-    fs.readFile('./views/login.html', (err, data) => {
+    fs.readFile(path.join(__dirname, '/views/login.html'), (err, data) => {
         if (err) {
             console.log(err)
             return
