@@ -1,4 +1,4 @@
-const url = require('url')
+const url = require('url/url')
 const http = require('http')
 
 module.exports = function () {
