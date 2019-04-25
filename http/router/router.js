@@ -1,5 +1,5 @@
 const url = require('url')
-const http = require('http')
+const http = require('http/router/index')
 
 module.exports = function () {
   let self = this

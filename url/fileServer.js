@@ -1,4 +1,4 @@
-var http = require('http');
+var http = require('http/router/index');
 var url = require('url');
 var fs = require('fs');
 
