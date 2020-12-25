@@ -1,9 +1,5 @@
-const http = require('http');
+const https = require('https');
 const querystring = require('querystring');
-const postData = querystring.stringify({
-    a:1,
-    b:[1,2]
-});
 /*
 * 常用的content-type
 *   text/xml
@@ -18,54 +14,40 @@ const postData = querystring.stringify({
 *   multipart/form-data 不对字符编码,在使用表单上传的文件时，必须使用该值
 *
 * */
-function get() {
-    const options = {
-        hostname:'www.baidu.com',
-        header:'content-type:text/html;charset:utf-8',
-        method:'GET'
-    };
-    const req = http.request(options,res=>{
-        let data;
-        res.on('data',chunk=>{
-            data+=chunk;
-        });
-        res.on('end',()=>{
-            console.info(data)
-        })
-    });
-    req.on('error',e=>{
-        console.error(e.message);
-    });
 
-    req.write(postData);
-    req.end();
+async function request(url,data,options){
+    let {data:body,...option} = options
+    body = data || body
+    return new Promise((resolve,reject)=>{
+        const req = https.request(url,{
+            ...option
+        },res=>{
+            let result;
+            res.on('data', chunk=>{
+                // console.log(chunk,'\n\n\n')  buffer
+                result+=chunk  // + 会把buffer自动转字符串
+            })
+            res.on('end',()=>{
+                resolve(result)
+            })
+        })
+        req.on('error',e=>{
+            reject(e)
+        })
+        body && req.write(querystring.stringify(body))
+        req.end();
+    })
 }
 
-function post() {
-    const options = {
-        hostname:'www.baidu.com',
-        // path:'/hello/qq.php',
-        // port:'80',
-        header:{
-            'content-type':'appliction/x-www-form-urlencoded;charset:utf-8',
-            'content-length':postData.length            //post请求最好加上数据的length，不然有可能会被服务器拒绝
-        },
-        method:'POST',
-    };
-    const req = http.request(options,res=>{
-        let data='';
-        res.on('data',chunk=>{
-            data+=chunk;
-        });
-        res.on('end',()=>{
-            console.info(data)
-        })
-    });
-    req.on('error',e=>{
-        console.error(e.message);
-    });
+// request('http://www.baidu.com',{hello:111},{
+//     method:'GET'
+// }).then(res=>{
+//     console.log(res)
+// })
 
-    req.write(postData);
-    req.end();
-}
-post();
+request('https://www.baidu.com',{hello:111},{
+    method:'GET',
+    // contentType:'application/x-www-form-urlencoded'
+}).then(res=>{
+    console.log(res)
+})
