@@ -12,7 +12,7 @@ var q = url.parse(adr, true);
 console.log('q:',q)
 
 // 浏览器端也有URL,也是挂在全局上的一个类,浏览器端一般用于生成blob链接
-var q1 = new URL(adr)  // 与parse大部分一致,只是多了个searchParams属性,auth分成了username,password
+var q1 = new URL(adr)  // 与url.parse大部分一致,只是多了个searchParams属性,auth分成了username,password
 console.log('q1:',q1)
 
 
