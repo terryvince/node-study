@@ -1,4 +1,4 @@
-console.log('执行参数：',process.argv);        // 1 node安装路径   2 当前进程路径    3+  当前进程接收执行参数
+console.log('执行参数：',process.argv);        // 1 node安装路径   2 当前进程路径(执行路径)    3+  当前进程接收执行参数
 
 // arch 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', 或 'x64'
 // platform 'aix' 'darwin' 'freebsd' 'linux' 'openbsd' 'sunos' 'win32'
