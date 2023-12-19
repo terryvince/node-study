@@ -7,6 +7,7 @@ async function main(){
      await copyDir(path.join(__dirname,'./input'),path.join(__dirname,'./output'))
      let files = fs.readdirSync(path.join(__dirname,'./output'))
      console.log('文件数量：',files.length,files)
+     
 }
 
 // 复制目录
