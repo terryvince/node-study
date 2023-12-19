@@ -11,7 +11,7 @@ const {exec} = require('child_process');
 
 exec('git add . && git commit -m "update"',(err,stdout,stderr)=>{
     if(err){
-     console.error(`执行出错: ${error}`);
+     console.error(`执行出错: ${err}`);
      return;
     }
      console.log(`stdout: ${stdout}`);
