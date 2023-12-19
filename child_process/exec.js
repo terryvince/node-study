@@ -1,13 +1,22 @@
 const {exec} = require('child_process');
 //执行shell命令
-exec('echo hello %temp%',(err,stdout,stderr)=>{
-   if(err){
-    console.error(`执行出错: ${error}`);
-    return;
-   }
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
-});
+// exec('echo hello %temp%',(err,stdout,stderr)=>{
+//    if(err){
+//     console.error(`执行出错: ${error}`);
+//     return;
+//    }
+//     console.log(`stdout: ${stdout}`);
+//     console.log(`stderr: ${stderr}`);
+// });
+
+exec('git add .',(err,stdout,stderr)=>{
+    if(err){
+     console.error(`执行出错: ${error}`);
+     return;
+    }
+     console.log(`stdout: ${stdout}`);
+     console.log(`stderr: ${stderr}`);
+ });
 
 //执行程序
 const { spawn } = require('child_process');
