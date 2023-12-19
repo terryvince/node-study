@@ -9,7 +9,7 @@ const {exec} = require('child_process');
 //     console.log(`stderr: ${stderr}`);
 // });
 
-exec('git add .',(err,stdout,stderr)=>{
+exec('git add . && git commit -m "update"',(err,stdout,stderr)=>{
     if(err){
      console.error(`执行出错: ${error}`);
      return;
